@@ -335,11 +335,11 @@ training_args = TrainingArguments(
   gradient_accumulation_steps=2,
   dataloader_num_workers = 1,
   evaluation_strategy="steps",
-  num_train_epochs=51,
+  num_train_epochs=40,
   #fp16=True,
-  save_steps=500,
-  eval_steps=500,
-  logging_steps=500,
+  save_steps=400,
+  eval_steps=400,
+  logging_steps=400,
   learning_rate=1e-4,
   #warmup_steps=1000,
   warmup_steps=500,
@@ -376,7 +376,7 @@ test_dataset = load_dataset('csv',data_files=['SampleSubmission_4000.csv'])
 
 
 processor = Wav2Vec2Processor.from_pretrained(output_models_dir)
-model = Wav2Vec2ForCTC.from_pretrained(f"{output_models_dir}/checkpoint-4000")
+model = Wav2Vec2ForCTC.from_pretrained(f"{output_models_dir}/checkpoint-3200")
 model.to("cuda")
 
 
